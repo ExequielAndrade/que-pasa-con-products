@@ -1,0 +1,45 @@
+<body>
+    <div id="container">
+      <h1>HOLAAAAAAAAAA</h1>
+    </div>
+   </body>
+   
+   <H2>elevado a 2 </H2>
+   <input type= "text" [(ngModel)] ="power">
+     {{power | exponential }}
+   
+   <br>
+   
+   <h2>buscador de nombres</h2>
+   <input type="text" [(ngModel)] = "title">
+   {{title}}
+   
+   
+   <div [ngSwitch]="title">
+   
+     <p *ngSwitchCase="'exequiel'">exequiel</p>
+     <p *ngSwitchCase="'andrade'">andrade</p>
+     <p *ngSwitchCase="'a'">juega lol</p>
+     <p *ngSwitchDefault>no funca el switch pa </p>
+   
+   </div>
+   
+   <div *ngIf ="title === 'hola bb'">
+     opaaaaa
+   </div>
+   
+   <button (click)="addItem()">Add item</button>
+   
+   <ul>
+     <li *ngIf="items.length ===0">
+       lista vacia
+     </li>
+   
+   
+     <li *ngFor="let name of items; index as i">
+       {{name}} {{i}}
+       <button (click)="deleteItem(i)"> Deletear item</button>
+     </li>
+   </ul>
+   
+   
