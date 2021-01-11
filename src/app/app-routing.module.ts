@@ -1,47 +1,60 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ProductComponent } from './components/product/product.component';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { ProductComponent } from './components/product-card/product.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { HomeComponent } from './home/home.component';
+/* import { HomeComponent } from './home/components/home/home.component'; */
 import { DemoComponent } from './demo/demo.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './products/components/products/products.component';
 import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductDetailComponent } from './products/components/product-detail/product-detail.component';
+import { LayoutComponent } from './layout/layout.component';
+import { AdminGuard } from './admin.guard';
 
 
 
 const routes: Routes = [
 
- 
   {
     path: '',
-    component: HomeComponent
-  },
+    component: LayoutComponent,
 
-  {
-    path: 'home',
-    component:  HomeComponent
-  },
+    children: [
 
-  {
-    path: 'products',
-    component: ProductsComponent
-  },
-  
-  {
-    path: 'product',
-    component: ProductComponent
-  },
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
 
-  {
-    path: 'products/:id',
-    component: ProductDetailComponent
-  },
+      {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then (m => m.HomeModule)
+      },
+    
+      {
+        path: 'products',
+        component: ProductsComponent
+      },
+      
+      {
+        path: 'product',
+        component: ProductComponent
+      },
+    
+      {
+        path: 'products/:id',
+        component: ProductDetailComponent
+      },
+    
+      {
+        path: 'contact',
+        canActivate: [AdminGuard],
+        component: ContactComponent,
+        
+      },
 
-  {
-    path: 'contact',
-    component: ContactComponent
-  },
+    ]
+  }, 
 
   {
     path:'demo',
@@ -57,7 +70,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+  preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
