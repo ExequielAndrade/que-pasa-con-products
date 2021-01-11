@@ -5,11 +5,19 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
 import { ProductsComponent } from './products/products.component';
-
+import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 
 const routes: Routes = [
+
+ 
+  {
+    path: '',
+    component: HomeComponent
+  },
+
   {
     path: 'home',
     component:  HomeComponent
@@ -18,6 +26,16 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent
+  },
+  
+  {
+    path: 'product',
+    component: ProductComponent
+  },
+
+  {
+    path: 'products/:id',
+    component: ProductDetailComponent
   },
 
   {
@@ -28,7 +46,13 @@ const routes: Routes = [
   {
     path:'demo',
     component: DemoComponent,
-  }
+  },
+
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  },
+
 
 ];
 

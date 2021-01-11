@@ -1,15 +1,12 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../core/models/product.model';
+import { Injectable } from '@angular/core';
+import { Product} from './core/models/product.model';
 
-
-@Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class ProductsComponent implements OnInit {
+export class ProductsService {
 
-   products: Product[] = [
+  products: Product[] = [
 
     {
       _id: '1',
@@ -44,30 +41,16 @@ export class ProductsComponent implements OnInit {
     image: 'https://assets.tramontina.com.br/upload/tramon/imagens/BEL/10849076ANM001G.png'
     },
 
-  ]; 
-  
-/*     getAllProducts(){
+  ];
+
+  getAllProducts(){
     return this.products;
   }
 
   getProduct(_id: string){
     return this.products.find(item=> _id === item._id)
 
-  }  */
-
-  clickProduct( _id: number){
-    console.log('Id del producto = ',_id);
-
   }
 
-
-
-  constructor(){
-    console.log('1. constructor');
-  }
-
-  ngOnInit(){
-    console.log('2. ngOnInit')
-  }
-
+  constructor() { }
 }
