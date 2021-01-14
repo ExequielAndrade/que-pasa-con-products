@@ -10,23 +10,4 @@ import {Product} from './core/models/product.model';
 })
 export class AppComponent {
 
-  title = 'cursoAngular';
-
-  items = ['exequiel','andrade','lol'];
-
-  clickProduct(_id:number){
-    console.log('Id del producto = ',_id);
-
-  }
-
-  addItem(){
-
-    this.items.push('nuevo item ');
-  }
-
-  deleteItem(index: number){
-    this.items.splice(index, 1);
-
-  }
- 
-}    
+}

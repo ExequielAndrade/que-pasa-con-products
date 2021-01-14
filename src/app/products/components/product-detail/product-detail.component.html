@@ -1,0 +1,18 @@
+<a [routerLink]="['/products']">Volver</a>
+<div *ngIf="product">
+    <div>
+        <img [src]="product?.image" alt="">
+    </div>
+
+    <div>
+        <ul>
+            <li>Id: {{product?.id}} </li>
+            <li>Nombre: {{product?.title}} </li>
+            <li>Precio: ${{product?.price }} </li>
+        </ul>
+        <p> {{product?.description}}</p>
+    </div>
+    <button (click)="createProduct()">Crear Producto</button>
+    <button (click)="updateProduct()">Editar Producto</button>
+    <button (click)="deleteProduct()">Eliminar producto</button>
+</div>    

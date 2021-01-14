@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { ProductComponent } from './components/product-card/product.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { ProductComponent } from './products/components/product-card/product.component';
+import { ContactComponent } from './contact/components/contact/contact.component';
 /* import { HomeComponent } from './home/components/home/home.component'; */
-import { DemoComponent } from './demo/demo.component';
+import { DemoComponent } from './demo/components/demo/demo.component';
 import { ProductsComponent } from './products/components/products/products.component';
 import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './products/components/product-detail/product-detail.component';
@@ -13,13 +13,11 @@ import { AdminGuard } from './admin.guard';
 
 
 const routes: Routes = [
-
   {
     path: '',
     component: LayoutComponent,
 
     children: [
-
       {
         path: '',
         redirectTo: '/home',
@@ -30,42 +28,31 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () => import('./home/home.module').then (m => m.HomeModule)
       },
-    
       {
         path: 'products',
-        component: ProductsComponent
+        loadChildren: () => import('./products/products.module').then (m => m.ProductsModule)
       },
-      
-      {
-        path: 'product',
-        component: ProductComponent
-      },
-    
-      {
-        path: 'products/:id',
-        component: ProductDetailComponent
-      },
-    
       {
         path: 'contact',
         canActivate: [AdminGuard],
-        component: ContactComponent,
-        
+        loadChildren: () => import('./contact/contact.module').then (m => m.ContactModule),
       },
 
     ]
-  }, 
-
+  },
   {
     path:'demo',
-    component: DemoComponent,
+    loadChildren: () => import('./demo/demo.module').then (m => m.DemoModule)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then (m => m.AdminModule)
 
+  },
   {
     path: '**',
     component: PageNotFoundComponent
   },
-
 
 ];
 
