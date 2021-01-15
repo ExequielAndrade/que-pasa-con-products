@@ -34,10 +34,10 @@ export class ProductDetailComponent implements OnInit {
   }
   createProduct(){
     const newProduct: Product = {
-      id: '16',
-      title: 'Viejito pascuero',
+      id: '18',
+      title: 'Nunca haria esa pa ',
       price: 7000,
-      description: 'nuevo nuevo',
+      description: ':c',
       image: 'https://img.bekianavidad.com/articulos/portada/78000/78196-h3.jpg',
     };
     this.productsService.createProduct(newProduct)

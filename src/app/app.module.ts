@@ -22,8 +22,8 @@ import { TableComponent } from './admin/components/table/table.component';
     CartComponent,
     PageNotFoundComponent,
     LayoutComponent,
-    ProductsListComponent,
-    TableComponent,
+    /* ProductsListComponent,
+    TableComponent, */
 
   ],
   imports: [

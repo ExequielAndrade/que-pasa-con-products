@@ -6,23 +6,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material/material.module';
 import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
-import { ProductsService} from './../core/services/products/products.service';
 import {MatTableModule} from '@angular/material/table';
-//import { ProductsListComponent } from './components/products-list/products-list.component';
-/* import { NasheComponent } from './components/nashe/nashe.component';
- */
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { TableComponent } from './components/table/table.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
+
 @NgModule({
   declarations:[
     ProductFormComponent,
     NavComponent,
     DashboardComponent,
-    //ProductsListComponent,
-
-
-    //ProductsListComponent,
-
-    /* ProductsService */
+    ProductsListComponent,
+    TableComponent,
+    FormProductComponent,
   ],
   imports: [
     CommonModule,
