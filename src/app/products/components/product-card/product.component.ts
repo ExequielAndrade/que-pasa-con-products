@@ -1,6 +1,7 @@
 import {Component, Input, Output, 
   EventEmitter, OnInit, DoCheck, OnDestroy,SimpleChanges} from '@angular/core';
 import { Product } from 'src/app/core/models/product.model';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 
 
 // tslint:disable-next-line: no-conflicting-lifecycle
@@ -17,7 +18,9 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
   today = new Date();
 
-  constructor() {
+  constructor(
+    private cartService: CartService
+  ) {
     console.log('1. constructor');
   }
 
@@ -41,6 +44,6 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
   addCart() {
     console.log('añadir al carrito');
-    this.productClicked.emit(this.product.id);
+    this.cartService.addCart(this.product);
   }
 }

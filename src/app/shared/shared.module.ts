@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CartRepeatPipe } from './pipes/cart-repeat/cart-repeat.pipe';
 
 
 
@@ -16,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    CartRepeatPipe,
+    
   ],
 
   exports:[
@@ -23,7 +26,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
-    
 
   ],
 

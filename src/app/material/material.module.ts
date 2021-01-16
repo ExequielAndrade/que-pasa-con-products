@@ -17,7 +17,7 @@ import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -48,6 +48,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatMenuModule,
     LayoutModule,
     MatFormFieldModule,
+    MatStepperModule,
 
   ],
   exports: [
@@ -72,6 +73,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatMenuModule,
     LayoutModule,
     MatFormFieldModule,
+    MatStepperModule,
   ]
 })
 export class MaterialModule { }
