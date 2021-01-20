@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tienda-c1f79": {
+      "hosting": {
+        "cursoAngular": [
+          "tienda-c1f79"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tienda-c1f79"
+  }
+}

@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="login($event)">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Loginaaaaaaa</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field>
+              <input placeholder="email" formControlName="email" matInput type="email">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field>
+              <input placeholder="password" formControlName="password" matInput type="password">
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- <p>Recuerdalos, contraseña min de 6 caracteres</p> -->
+      </mat-card-content>
+      <mat-card-actions>
+        <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
+        <button [disabled]="form.invalid" mat-raised-button type="submit" (click)="loginApi()" >Login Api</button>
+      </mat-card-actions> 
+    </mat-card>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/auth/register">Registrar</a>
+    </mat-nav-list>
+
+  </form>
+  
