@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Product } from '../../../core/models/product.model';
 import { ProductsService} from '../../../core/services/products/products.service';
 
@@ -10,7 +12,7 @@ import { ProductsService} from '../../../core/services/products/products.service
 })
 export class ProductDetailComponent implements OnInit {
 
-  product?: Product ;
+  product$?: Observable<Product> ;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,20 +20,14 @@ export class ProductDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) =>{
-      const id = params.id;
-      this.fetchProduct(id);
-      console.log(this.product);
-    });
+    this.product$ = this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+        return this.productsService.getProduct(params.id);
+      })
+    );
   }
-  fetchProduct(id: string) {
-    this.productsService.getProduct(id)
-    .subscribe(product =>{
-      this.product = product;
-      console.log(product);
 
-    });
-  }
   createProduct(){
     const newProduct: Product = {
       id: '18',
@@ -63,5 +59,24 @@ export class ProductDetailComponent implements OnInit {
       console.log(rta);
     });
   }
+
+  getRandomUsers(){
+    this.productsService.getRandomUsers()
+    .subscribe( (users) => { //bien
+        console.log( users );
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
+  /* getFile() {
+    this.productsService.getFile()
+    .subscribe(content => {
+      console.log(content);
+    });
+  } */
+
 
 }

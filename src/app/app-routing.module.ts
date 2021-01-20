@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { ProductComponent } from './products/components/product-card/product.component';
+/* import { ProductComponent } from './products/components/product-card/product.component';
 import { ContactComponent } from './contact/components/contact/contact.component';
-/* import { HomeComponent } from './home/components/home/home.component'; */
+import { HomeComponent } from './home/components/home/home.component'; 
 import { DemoComponent } from './demo/components/demo/demo.component';
-import { ProductsComponent } from './products/components/products/products.component';
-import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './products/components/product-detail/product-detail.component';
+import { ProductsContainerComponent } from './products/components/products/products.container';
+
+import { ProductDetailComponent } from './products/components/product-detail/product-detail.component'; */
 import { LayoutComponent } from './layout/layout.component';
 import { AdminGuard } from './admin.guard';
+import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 
 
